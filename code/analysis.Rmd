@@ -130,7 +130,7 @@ ggplot(data = correlation_matrix %>% filter(row != "num_contigs",
                                      hjust = 1)) +
     geom_text(aes(label=round(cor, 3)) , color="black") + 
     labs(x = "Contiguity", y = "Completeness & Correctness")
-ggsave("../manuscript/imgs/correlation.png", width = 8.5, height = 5.5, dpi = 300)
+ggsave("../manuscript/imgs/1.png", width = 11, height = 8.5, dpi = 600)
 ```
 
 Of these comparisons, a few stand out. Notably, none of these factors are
@@ -166,7 +166,7 @@ informative.
 ```{r complete_vs_N50}
 ggplot(data %>% filter(N50 < 2e8), aes(N50, complete)) + 
     geom_point(alpha = 0.5)
-ggsave("../manuscript/imgs/N50_complete.png", width = 8.5, height = 5.5, dpi = 300)
+ggsave("../manuscript/imgs/3.png", width = 11, height = 8.5, dpi = 600)
 ```
   
 Deciphering a relationship between N50 and the percentage of complete BUSCOs is
@@ -212,7 +212,7 @@ ggplot(data = correlation_matrix %>% filter(row != "complete",
                                      hjust = 1)) +
     geom_text(aes(label=round(cor, 3)) , color="black") + 
     labs(x = "Contiguity features", y = "Contiguity features")
-ggsave("../manuscript/imgs/contiguity_correlation.png", width = 8.5, height = 5.5, dpi = 300)
+ggsave("../manuscript/imgs/contiguity_correlation.png", width = 11, height = 8.5, dpi = 600)
 
 ggplot(data = correlation_matrix %>% filter(row != "num_contigs", 
                                             row != "esize", 
@@ -238,7 +238,7 @@ ggplot(data = correlation_matrix %>% filter(row != "num_contigs",
                                      hjust = 1)) +
     geom_text(aes(label=round(cor, 3)) , color="black") + 
     labs(x = "BUSCO features", y = "BUSCO features")
-ggsave("../manuscript/imgs/busco_correlation.png", width = 8.5, height = 5.5, dpi = 300)
+ggsave("../manuscript/imgs/2.png", width = 11, height = 8.5, dpi = 600)
 ```
 
 The distance to the ideal was created as a way to encode expert knowledge in a metric. The table with number of chromosomes is available for download at https://genomesize.com, but this data has to be downloaded by each individual; the terms of use don't allow redistribution. The features were also renamed to match the formatting of the animal size database.
@@ -267,33 +267,6 @@ merged = merge(data, rankings, by = "Species") %>%
                                         Chrom.num/2, 
                                         complete,
                                         duplicate))
-
-correlation_matrix = rcorr(as.matrix(merged %>% select(-Species)), type="spearman")
-correlation_matrix = flatten_correlation_matrix(correlation_matrix$r,
-                                                correlation_matrix$P)
-correlation_matrix =  correlation_matrix %>% 
-    mutate(cor = ifelse(p >= 0.05,
-                        NA,
-                        .data$cor))
-ggplot(data = correlation_matrix, 
-       aes(column, row, fill = cor))+
-    geom_tile(color = "white") +
-    theme_minimal() + 
-    scale_fill_gradient2(low = muted("red"),
-                         mid = "white", 
-                         high = muted("blue"), 
-                         midpoint = 0, 
-                         space = "Lab",
-                         na.value = "grey50",
-                         guide = "colourbar",
-                         aesthetics = "fill",
-                         name="Spearman\nCorrelation") +
-    theme(axis.text.x = element_text(angle = 45, 
-                                     vjust = 1,
-                                     size = 12,
-                                     hjust = 1)) +
-    geom_text(aes(label=round(cor, 3)) , color="black") + 
-    labs(x = "Contiguity", y = "Completeness & Correctness")
 
 sampled = rbind(head(merged %>% arrange(distance), 5), 
                 merged[sample(nrow(merged), 20), ],
