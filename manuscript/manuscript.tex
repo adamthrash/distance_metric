@@ -1,0 +1,522 @@
+%% BioMed_Central_Tex_Template_v1.06
+%%                                      %
+%  bmc_article.tex            ver: 1.06 %
+%                                       %
+
+%%IMPORTANT: do not delete the first line of this template
+%%It must be present to enable the BMC Submission system to
+%%recognise this template!!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                     %%
+%%  LaTeX template for BioMed Central  %%
+%%     journal article submissions     %%
+%%                                     %%
+%%          <8 June 2012>              %%
+%%                                     %%
+%%                                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% For instructions on how to fill out this Tex template           %%
+%% document please refer to Readme.html and the instructions for   %%
+%% authors page on the biomed central website                      %%
+%% http://www.biomedcentral.com/info/authors/                      %%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%% BioMed Central currently use the MikTex distribution of         %%
+%% TeX for Windows) of TeX and LaTeX.  This is available from      %%
+%% http://www.miktex.org                                           %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% additional documentclass options:
+%  [doublespacing]
+%  [linenumbers]   - put the line numbers on margins
+
+%%% loading packages, author definitions
+
+\documentclass[twocolumn, dvipsnames]{bmcart}% uncomment this for twocolumn layout and comment line below
+%\documentclass{bmcart}
+
+%%% Load packages
+%\usepackage{amsthm,amsmath}
+%\RequirePackage{natbib}
+%\RequirePackage[authoryear]{natbib}% uncomment this for author-year bibliography
+%\RequirePackage{hyperref}
+\usepackage[utf8]{inputenc} %unicode support
+\usepackage{graphicx}
+
+%\usepackage[applemac]{inputenc} %applemac support if unicode package fails
+%\usepackage[latin1]{inputenc} %UNIX support if unicode package fails
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                             %%
+%%  If you wish to display your graphics for   %%
+%%  your own use using includegraphic or       %%
+%%  includegraphics, then comment out the      %%
+%%  following two lines of code.               %%
+%%  NB: These line *must* be included when     %%
+%%  submitting to BMC.                         %%
+%%  All figure files must be submitted as      %%
+%%  separate graphics through the BMC          %%
+%%  submission process, not included in the    %%
+%%  submitted article.                         %%
+%%                                             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\def\includegraphic{}
+\def\includegraphics{}
+
+
+
+%%% Put your definitions there:
+\startlocaldefs
+
+\newcommand\hl[1]{\textcolor{NavyBlue}{#1}}
+\endlocaldefs
+
+
+%%% Begin ...
+\begin{document}
+
+%%% Start of article front matter
+\begin{frontmatter}
+
+\begin{fmbox}
+\dochead{Research}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the title of your article here     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Toward a More Holistic Method of Genome Assembly Assessment}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the authors here                   %%
+%%                                          %%
+%% Specify information, if available,       %%
+%% in the form:                             %%
+%%   <key>={<id1>,<id2>}                    %%
+%%   <key>=                                 %%
+%% Comment or delete the keys which are     %%
+%% not used. Repeat \author command as much %%
+%% as required.                             %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author[
+   addressref={aff1, aff2},
+   corref={aff1},
+   email={thrash@igbb.msstate.edu}
+]{\inits{AT}\fnm{Adam} \snm{Thrash}}
+\author[
+   addressref={aff3}
+]{\inits{FH}\fnm{Federico} \snm{Hoffmann}}
+\author[
+   addressref={aff2}
+]{\inits{AP}\fnm{Andy} \snm{Perkins}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter the authors' addresses here        %%
+%%                                          %%
+%% Repeat \address commands as much as      %%
+%% required.                                %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\address[id=aff1]{
+  \orgname{Institute for Genomics, Biocomputing \& Biotechnology, Mississippi State University},
+  \city{Mississippi State},
+  \state{MS},
+  \cny{USA}
+}
+
+\address[id=aff2]{%
+  \orgname{Department of Computer Science and Engineering, Mississippi State University},
+  \city{Mississippi State},
+  \state{MS},
+  \cny{USA}
+}
+
+\address[id=aff3]{%
+  \orgname{Department of Biochemistry, Molecular Biology, Entomology and Plant Pathology, Mississippi State University},
+  \city{Mississippi State},
+  \state{MS},
+  \cny{USA}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Enter short notes here                   %%
+%%                                          %%
+%% Short notes will be after addresses      %%
+%% on first page.                           %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{artnotes}
+%\note{Sample of title note}      % note to the article
+% \note[id=n1]{Equal contributor} % note, connected to author
+\end{artnotes}
+
+%\end{fmbox}% comment this for two column layout
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The Abstract begins here                 %%
+%%                                          %%
+%% Please refer to the Instructions for     %%
+%% authors on http://www.biomedcentral.com  %%
+%% and include the section headings         %%
+%% accordingly for your article type.       %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstractbox}
+
+\begin{abstract}
+\parttitle{Background}
+A key use of high throughput sequencing technology is the sequencing and assembly of full genome sequences. These genome assemblies are commonly assessed using statistics relating to contiguity of the assembly. Measures of contiguity are not strongly correlated with information about the biological completion or correctness of the assembly, and a commonly reported metric, N50, can be misleading. Over the years, multiple research groups have rejected the overuse of N50 and sought to develop more informative metrics.
+
+\parttitle{Results}
+This paper presents a review of problems that arise from relying solely on contiguity as a measure of genome assembly quality as well as current alternative methods. Alternative methods are compared on the basis of how informative they are about the biological quality of the assembly and how easy they are to use. A comprehensive method for using multiple metrics of measuring assembly quality is presented.
+
+\parttitle{Conclusions}
+This study aims to report on the status of assembly assessment methods and compare them, as well as to offer a comprehensive method that incorporates multiple facets of quality assessment. Weaknesses and strengths of varying methods are presented and explained, with recommendations based on speed of analysis and user friendliness.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The keywords begin here                  %%
+%%                                          %%
+%% Put each keyword in separate \kwd{}.     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{keyword}
+\kwd{genome assembly}
+\kwd{contiguity}
+\kwd{completeness}
+\kwd{correctness}
+\kwd{N50}
+\end{keyword}
+
+% MSC classifications codes, if any
+%\begin{keyword}[class=AMS]
+%\kwd[Primary ]{}
+%\kwd{}
+%\kwd[; secondary ]{}
+%\end{keyword}
+
+\end{abstractbox}
+%
+\end{fmbox}% uncomment this for twcolumn layout
+
+\end{frontmatter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% The Main Body begins here                %%
+%%                                          %%
+%% Please refer to the instructions for     %%
+%% authors on:                              %%
+%% http://www.biomedcentral.com/info/authors%%
+%% and include the section headings         %%
+%% accordingly for your article type.       %%
+%%                                          %%
+%% See the Results and Discussion section   %%
+%% for details on how to create sub-sections%%
+%%                                          %%
+%% use \cite{...} to cite references        %%
+%%  \cite{koon} and                         %%
+%%  \cite{oreg,khar,zvai,xjon,schn,pond}    %%
+%%  \nocite{smith,marg,hunn,advi,koha,mouse}%%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% start of article main body
+
+\section*{Background}
+
+Genome assembly is the process of assembling biological reads from sequencing into larger sequences called \textit{contigs}. A common method of quantifying the quality of genome assemblies is to compute statistics about contiguity. For example, the assembly for \textit{M. musculus} at the National Center for Biotechnology Information (NCBI) website reports features like N50 (a number which represents the smallest contig such that half the genome is represented by contigs of size N50 or larger \cite{Salzberg2012, Baker2012}), total sequence length, gaps between scaffolds, and number of contigs \cite{noauthor_grcm38.p6_nodate}. However, there is no obvious relationship between these numbers and whether a genome contains any useful information. Indeed, many papers published in the past ten years have cited this lack of a relationship, in addition to N50's own issues, as a reason to replace or supplement N50.
+
+The final output of the assembly process may contain errors; these errors may arise as a result of problems that occurred in the sequencing or problems that occurred during the assembly process. These errors can be discussed in terms of contiguity, completeness, and correctness. These three features, sometimes called the three Cs, are defined below. An ideal genome is contiguous, complete, and correct.
+
+Contiguity is related to the size and number of contigs. If a goal of assembly is to reflect the contiguity of the genome \textit{in vivo}, then the assembly process seeks to maximize the size of the contigs and to minimize the number of contigs to reflect the true number and size of the chromosomes in the organism. Contiguity errors may arise due to assembler parameters that allow unrelated contigs to be joined or that prevent related contigs from being joined.
+
+Completeness is determined by the content of contigs, especially with regard to gene content. A contiguous genome that contains no gene content is not useful for downstream analysis. Completeness errors can arise in sequencing (important genes may not be sequenced) or they may arise in the assembly process (genes may end up in discarded contigs).
+
+Correctness is concerned with the ordering and location of contigs. A correct genome assembly has the same order as the true genome. If contigs are incorrect, they may have inversions, relocations, or translocations with respect to the true genome \cite{Salzberg2012}.
+
+A discussion of types of assembly errors is not a discussion of three separate facets of assembly assessment. Contiguity errors can be discussed in terms of how those errors are misjoins in relation to the true genome. Some measures of completeness are related to contiguity. For example, fragmentation of the genome (a measure of contiguity) is related to fragmentation of the genes \cite{grau_improving_2018}. An incorrectly collapsed heterozygous allele in an assembly contributes to inaccurate contiguity statistics.
+
+In the last decade, multiple papers have discussed genome assembly assessment. Many of these papers begin with an assertion that contiguity or N50 specifically is not well-correlated with genome correctness or completeness. Alternatives to N50 are then presented; these alternatives are either meant to supplement or replace N50.
+
+Salzberg \textit{et al}. discuss comparisons of assemblies and assemblers in their paper. They present genome assemblies from many assemblers and discuss which genome assemblies are better. In their paper, they compare genomes using measures of contiguity like N50 and number of contigs, in addition to a metric called e-size that they developed. They note that genome correctness is not well-correlated with statistics about contiguity. They also note that N50 can be misleading; in the case of misjoins, contigs are larger than they should be, which inflates the N50 score. To address this issue, Salzberg \textit{et al}. developed e-size, which measures the size of a contig containing a randomly selected base on the genome. The paper states that this metric can help answer questions about how many genes are completely contained in contigs or scaffolds rather than fragmented. While e-size is more robust than N50, e-size is still affected by misjoins. Because it is a continuous measure rather than a discrete measure, the effect is less noticeable \cite{Salzberg2012}.
+
+Meader \textit{et al}. developed a method of genome assembly assessment that relies on alignments to genomes of closely related species. In their paper, they assert that N50 measures the assembler's ability to combine reads in large seamless blocks but does not reflect fine-scale inaccuracies like substitutions, insertions, or deletions. While their method is rooted in biology, its requirement of a reference genome makes it much less useful for those who are assembling genomes of species without good references \cite{Meader2010}.
+
+Utturkar \textit{et al}., in their study of hybrid assembly techniques, write that N50 and the number of contigs are widely used but don't always correlate with assembly quality. Instead, they relied on CGAL and REAPR, two tools that will be discussed later \cite{Utturkar2014}.
+
+Seemann \textit{et al}. use many features for their comparison of animal genomes: nucleic acid conservation of highly conserved protein-coding and ultraconserved elements (UCs), amino acid homology of universal single-copy orthologs, structure conservation of housekeeping RNAs, assembly sequence quality, and assembly contiguity. They calculate the Euclidean distance of the first three principle components of each species and human, which they use as a gold standard of assembly \cite{Seemann2015}.
+
+Hunter \textit{et al}. developed a tool called REAPR \cite{Hunt2013} to address their issues with N50. Notably, they assert that N50 only indicates contiguity of the genome, not accuracy, and that it is often boosted by improperly joined contigs. Their approach is to correct N50 by using data from the reads used in assembly to discover misjoins and break them apart to produce a more correct assembly with a lower N50. While this tool performs and important function, its output still reflects a desire to use contiguity as a measure of genome assembly quality.
+
+Rahman and Pachter developed a method that computes the likelihood of an assembly given the reads that were used to create the assembly \cite{Rahman2013}. Rahman and Pachter created a generative model for sequencing that requires an alignment of the reads to the assembly, which they then use to determine the likelihood of those reads being from the assembly according to their model. CGAL provides no explicit information about gene content or correctness to its users. CGAL does not require a reference genome, which is helpful for researchers that don't have a reference for their species.
+
+Sim{\~a}o \textit{et al}. describe N50 as a technical measure that does not reflect gene content, and developed a tool called BUSCO, which searches for benchmarking universal single-copy orthologs (BUSCOs) in an assembly. BUSCO measures these orthologs by counting complete single-copy BUSCOs, fragmented BUSCOs, missing BUSCOs, and duplicate BUSCOs. The authors of BUSCO note that duplicate BUSCOs may represent misassemblies where a heterozygous allele failed to collapse into the assembly properly and was retained as a contig \cite{Simao2015}.
+
+Gurevich \textit{et al}. developed a tool for comparing assemblers and assemblies called QUAST. QUAST works with or without a reference genome and introduces metrics related to an assembly's alignment to a reference in order to counter the possibility of an artificially inflated N50. QUAST measures several factors related to contiguity, structural elements, and functional elements and provides the most information about an assembly when used with an annotated reference genome. Without a reference genome, QUAST uses gene prediction to report the number of predicted genes \cite{Gurevich2013}.
+
+Thomas and Hahn developed a tool called Referee. While they make no claims about N50 in their paper, they stress the importance of correct bases in a genome assembly because those errors effect downstream analysis. Referee uses the quality information from the reads used in an assembly to determine the likelihood of having a specific base at every position in the genome and can correct the genome if another base is more likely. Referee does not address correctness directly in terms of misjoins, translocations, or relocations, nor does it report a single metric to the user (it reports the likelihoods of every base in the genome instead). However, Referee serves an important function in ensuring that the best base from all reads that overlap a position is selected \cite{thomas_referee:_2019}.
+
+Most of these papers found that contiguity, specifically N50 alone, was insufficient as the sole metric of genome assembly quality. These papers provide supplemental metrics, corrective metrics, or entirely alternative metrics to supplement what they saw as a deficient metric for assessing assembly quality.
+
+Before any discussion of these metrics and their alternatives, an exploration of the goal of genome assembly is helpful. As stated in the introduction, an ideal genome scores well in all three categories of contiguity, completeness, and correctness. For some projects, the goal of genome assembly is improving the assembly for others to use. For others, genome assembly is a means to an end, such as analysis of RNA-seq data. In both cases, there is an expectation that a genome assembly will be used for some downstream analysis. In order to best perform this downstream analysis, researchers need to be certain of the quality of their assembly.
+
+\section*{Methods}
+
+To explore genome assembly assessment methods with real data, ~800 vertebrate genomes were downloaded from NCBI and assessed with abyss-fac (included with ABySS v2.0.1)\cite{Simpson2009} and BUSCO (v3) \cite{Simao2015, Waterhouse2017}. These genomes represent all of the vertebrate genomes that were available from NCBI at the time in mid-2018. Of these, 797 were successfully assessed. Abyss-fac and BUSCO are publicly available and do not require the reads used to make the assemblies as input (unlike REAPR and CGAL, for example). Seven features were selected and computed to describe each genome. N50, e-size, and number of contigs were selected for contiguity; complete single-copy BUSCOs, fragmented BUSCOs, and missing BUSCOs were selected to describe completeness; and duplicate BUSCOs were selected to describe correctness, since duplicate BUSCOs may arise from the failure of an assembler to correctly assemble heterozygous alleles. These features and the scripts used in this analysis are available in the GitHub repository provided at the end of this paper.
+
+Correlation testing using Spearman's rank-order correlation was performed to validate the claims that measures of contiguity and measures of completeness are not well-correlated. Statistically insignificant correlations ($p > 0.05$) were removed and correlations  among the same facet (contiguity/contiguity, for example) were also removed. The resulting image (Figure \ref{fig:correlation}) shows the correlations discovered, the direction of the correlation, and the strength of the correlation.
+
+% FIGURE 1
+
+In an attempt to make genome assembly quality assessment quick, simple, and intuitive, a metric was developed using information from the vertebrate data set. The number of contigs was selected to present contiguity for two reasons. First, it has a slightly better correlation to the BUSCO features as shown in Figure \ref{fig:correlation}. Second, the number of contigs has a roughly known target in vertebrates. The red king crab (\textit{Paralithodes camtschaticus}) has the maximum number of chromosomes in animals at 208 chromosomes, so we can use this number as an upper bound on the number of desired contigs in our assemblies.
+
+% FIGURE 2
+
+In order to select representative features of completeness from BUSCO, the correlation between BUSCO's features was calculated and plotted as shown in \ref{fig:busco_correlation}. The percentage of complete single-copy BUSCOs was selected to represent completeness. Both the percentage of fragmented single-copy BUSCOs and the percentage of missing single-copy BUSCOs are strongly correlated with the percentage of complete single-copy BUSCOs; therefore, the percentage of complete single-copy BUSCOs was selected to represent all three features.
+
+The percentage of duplicate BUSCOs was not well-correlated with any other BUSCO features or any features representing contiguity (Spearman's $\rho = -0.009$, $p = 0.808$). It was selected as the representative of correctness.
+
+The metric computed involves a determination of an ``ideal'' genome for the particular assembly in question. In this definition of an ideal genome, all or nearly all single-copy BUSCOs are captured completely, duplicate BUSCOs are low or non-existent, and the number of contigs is equal to the expected number in the species or a closely related species. These three factors allow the computation of a Euclidian distance from the current genome to the ideal genome. This metric does assume that a researcher has some knowledge of the expected number of chromosomes. Equation \ref{distance_to_ideal} shows how this metric is computed, where $i_c$ is the ideal number of complete single-copy BUSCOs, $b_c$ is the predicted number of single-copy BUSCOs, $i_d$ is the the ideal number of duplicate BUSCOs, $b_d$ is the predicted number of duplicate BUSCOs, $n_c$ is the number of chromosomes, and $n$ is the number of contigs. The comparison between number of contigs versus number of chromosomes is converted to a percent, since the number of contigs can be very high. By converting the relationship between number of chromosomes and number of contigs to a percentage, all three comparisons are on the same scale of 0-100.
+
+\begin{equation}
+\label{distance_to_ideal}
+d_i = \sqrt{(i_c - b_c)^2 + (i_d-b_d)^2 + (100-(\frac{n_c}{n})*100)^2}
+\end{equation}
+
+\section*{Results and Discussion}
+
+Some of the features of contiguity appeared to be moderately correlated with features of completeness, while others were less strongly correlated. The percentage of fragmented BUSCOs has a moderate correlation to the three factors of contiguity in the comparison. This relationship can be explained by considering the the relationship between contiguity and fragmented BUSCOs --- as the number of contigs decreases, any BUSCOs that might be fragmented across contigs are instead now joined. Some relationship between contiguity and fragmented genes is expected and therefore not surprising when fully considered \cite{grau_improving_2018}.
+
+Complete single-copy BUSCOs were somewhat correlated with measures of contiguity. In order to explain this correlation, N50 and the percentage of complete single-copy BUSCOs were plotted against each other. N50 was selected because it is the metric that the authors of the reviewed papers critiqued. The initial plot had two outliers with N50 > 2e8 that heavily affected the scale of the plot; these outliers were dropped for the sake of a clearer visualization as seen in Figure \ref{fig:N50_vs_complete}.
+
+% FIGURE 3
+
+Deciphering a relationship between N50 and the percentage of complete single-copy BUSCOs is difficult based on the information provided in this plot. There are many genomes with high completeness plotted for a large range of N50 values from high to low. There are also many genomes with low N50 that have a percentage of complete single-copy BUSCOs ranging from 0 - 100.
+
+In other words, given a low N50, no prediction about the percentage of complete single-copy BUSCOs can be made. Given a high N50, a high percentage of complete single-copy BUSCOs seems more likely but is not guaranteed. The inverse is also true --- given a low percentage of complete single-copy BUSCOs, the N50 is likely to also be low. Given a high percent complete, N50 can range from 0 to 2e8. The quality of the genomes uploaded to NCBI becomes apparent as well.
+
+The percentage of missing BUSCOs and the percentage of complete single-copy BUSCOs is similar, although the correlation is a negative correlation for the percentage of missing BUSCOs. While this relationship to N50 was plotted, the plot was roughly similar to the plot in Figure \ref{fig:N50_vs_complete} after an inversion along the y-axis and thus is not presented. This result is expected; in most cases, when the percentage of complete single-copy BUSCOs increases, the percentage of fragmented single-copy BUSCOs decreases (Spearman's $\rho = -0.8906630$).
+
+Duplicate BUSCOs were not well correlated with any measure of contiguity.
+
+Of all the alternative methods of measuring genome assembly quality presented, few of them present information about all three facets of genome assessment in a clear, concise manner. Some alternatives provide metrics that still do not provide information about all facets; other alternatives present so many metrics that gaining a clear understanding of all three facets of a genome assembly can be difficult. Still other methods use some sort of gold-standard.
+
+With the presented distance metric, genome researchers encode their domain knowledge into the formulation of an ideal genome. If they have some knowledge that their species's genome has a high percent of duplicated genes, they can encode this knowledge into their ideal genome. In this way, the metric encodes human subject expert knowledge and is a comparison to an ideal version of itself rather than to another species's genome. A perfect score is zero or close to zero, and high scores represent genomes with a flaw in one or more of the facets. Additionally, this metric is extensible; new terms can be added to the equation so long as those terms can be scaled to run from 0 - 100. For example, CGAL's likelihood scores could be added to this distance metric.
+
+In Table \ref{tab:distances}, the distances were computed to the ideal genome for a selection of genomes from the vertebrate dataset. In each case, the number of desired chromosomes was taken from the Animal Genome Size Database \cite{gregory_animal_2005}. Not all of the genomes in this database reported number of chromosomes, but the distance metric was calculated for 316 of the 797 genomes in the vertebrate dataset. The ideal percent of complete single-copy BUSCOs was set to 100\%, and the ideal percent of duplicate BUSCOs was set to 0\%. However, these distances inherently reflect the bias of the author in how the ideal genome for each of these assemblies should be represented. Additionally, these distances are presented as an example of the types of features one might expect to see associated with particular distances, rather than any attempt to assign a ranking to these genomes.
+
+The N50 values alone might suggest that some of the \textit{H. sapiens} assemblies are the best (N50s = 149,700,000 and 142,200,000), but even comparing these two N50s, the distances are 10.89 and 99.9 respectively. Upon investigation, the more distant assembly has 6,505 contigs, while the less distant assembly has only 24.
+
+\section*{Conclusions}
+
+In conclusion, measures of contiguity are not reliable as the sole measure of genome assessment. Additional metrics can be added, but these measures may not be simple to obtain or may require a reference that does not exist for the species in question. An additional metric is presented that incorporates metrics obtained from publicly available tools and human subject matter expert knowledge and presents the user with a single score.
+
+For researchers who are assembling new genomes, there are a variety of methods to ensure that their genome assembly is high quality. Tools like BUSCO and abyss-fac can give estimates of the contiguity and completeness of the assembly, similar to the statistics presented in this paper. Researchers can also use the estimated size of the genome as compared to the sum of the assembly as presented in abyss-fac. The quality of the assembly can also be checked with the reads used to make the assembly using CGAL and REAPR. REAPR can make corrections based on this information. A newly published tool, Referee \cite{thomas_referee:_2019}, can use the per-base accuracy information in the reads to correct unlikely bases in the genome assembly.
+
+Current work is underway to collect information from human subject matter experts about these assemblies in order to use machine learning to model the collective knowledge of experts. A website was developed that allows users to drag and drop genomes into a desired order and rank them from 1-10. These rankings can then be used to train a supervised machine learning algorithm and used to label unknown genomes based on metrics of the contiguity, completeness, and correctness.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% Backmatter begins here                   %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{backmatter}
+
+\section*{Competing interests}
+The authors declare that they have no competing interests.
+
+\section*{List of abbreviations}
+National Center for Biotechnology Information (NCBI)
+
+Ultraconserved elements (UCs)
+
+Benchmarking universal single-copy orthologs (BUSCOs)
+
+\section*{Declarations}
+
+\subsection*{Ethics approval and consent to participate}
+NA
+
+\subsection*{Consent for publication}
+NA
+
+\subsection*{Availability of data and materials}
+Features and code available at https://github.com/adamthrash/distance\_metric/
+
+Number of chromosomes in genomes available at https://genomesize.com
+
+\section*{Funding}
+This research was funded in part through USDA Agricultural Research Service Agreements 58-6066-6-046 and 58-6066-6-059, and USDA National Institute of Food and Agriculture Multi-State Hatch project 17810.
+
+\section*{Author's contributions}
+AT, FH, and AP designed the study. AT developed the methods, performed the analysis, and wrote the manuscript. All authors reviewed and edited the final manuscript.
+
+\section*{Acknowledgments}
+We would like to acknowledge Mr. Mark Arick II for sharing his expertise on and experience in genome assembly.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                  The Bibliography                       %%
+%%                                                         %%
+%%  Bmc_mathpys.bst  will be used to                       %%
+%%  create a .BBL file for submission.                     %%
+%%  After submission of the .TEX file,                     %%
+%%  you will be prompted to submit your .BBL file.         %%
+%%                                                         %%
+%%                                                         %%
+%%  Note that the displayed Bibliography will not          %%
+%%  necessarily be rendered by Latex exactly as specified  %%
+%%  in the online Instructions for Authors.                %%
+%%                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% if your bibliography is in bibtex format, use those commands:
+\bibliographystyle{bmc-mathphys} % Style BST file (bmc-mathphys, vancouver, spbasic).
+\bibliography{references}      % Bibliography file (usually '*.bib' )
+% for author-year bibliography (bmc-mathphys or spbasic)
+% a) write to bib file (bmc-mathphys only)
+% @settings{label, options="nameyear"}
+% b) uncomment next line
+%\nocite{label}
+
+% or include bibliography directly:
+% \begin{thebibliography}
+% \bibitem{b1}
+% \end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Figures                       %%
+%%                               %%
+%% NB: this is for captions and  %%
+%% Titles. All graphics must be  %%
+%% submitted separately and NOT  %%
+%% included in the Tex document  %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%
+%% Do not use \listoffigures as most will included as separate files
+
+\section*{Figures}
+
+\begin{figure}[h!]
+  % \includegraphics[width=0.85\linewidth]{imgs/1}
+  \caption{Correlation of contiguity and completeness/correctness}
+  \label{fig:correlation}
+\end{figure}
+
+\begin{figure}[h!]
+  % \includegraphics[width=0.85\linewidth]{imgs/2}
+  \caption{Correlation of BUSCO statistics}
+  \label{fig:busco_correlation}
+\end{figure}
+
+\begin{figure}[h!]
+  % \includegraphics[width=0.85\linewidth]{imgs/3}
+  \caption{N50 vs Percentage of Complete Single-Copy BUSCOs}
+  \label{fig:N50_vs_complete}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Tables                        %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Use of \listoftables is discouraged.
+%%
+\section*{Tables}
+
+\begin{table*}[t]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrr}
+\hline
+\textbf{Species} & \textbf{N50} & \textbf{num\_contigs} & \textbf{complete} & \textbf{duplicate} & \textbf{distance} \\ \hline
+\textit{Oryzias latipes} & 31200000 & 24 & 95.70 & 1.00 & 4.41 \\
+\textit{Oryzias latipes} & 32840000 & 24 & 94.50 & 1.00 & 5.59 \\
+\textit{Oryzias latipes} & 28850000 & 24 & 92.00 & 1.10 & 8.08 \\
+\textit{Macaca fascicularis} & 133600000 & 21 & 89.90 & 1.00 & 10.15 \\
+\textit{Homo sapiens} & 149700000 & 24 & 90.00 & 1.10 & 10.89 \\
+\hline
+\textit{Falco peregrinus} & 88200000 & 34 & 94.00 & 0.30 & 27.14 \\
+\textit{Seriola quinqueradiata} & 5609355 & 384 & 95.90 & 1.00 & 93.84 \\
+\textit{Dromaius novaehollandiae} & 3317187 & 2777 & 97.50 & 0.40 & 98.59 \\
+\textit{Homo sapiens} & 30940000 & 2416 & 93.50 & 1.40 & 99.27 \\
+\textit{Homo sapiens} & 8420670 & 3103 & 92.80 & 1.40 & 99.53 \\
+\textit{Mus caroli} & 111200000 & 3162 & 93.50 & 1.80 & 99.60 \\
+\textit{Falco peregrinus} & 3918221 & 7020 & 97.30 & 0.30 & 99.68 \\
+\textit{Equus asinus} & 15030000 & 9021 & 95.60 & 0.60 & 99.76 \\
+\textit{Phascolarctos cinereus} & 11590000 & 1906 & 91.90 & 1.40 & 99.92 \\
+\textit{Homo sapiens} & 142200000 & 6505 & 92.00 & 1.20 & 99.97 \\
+\textit{Camelus bactrianus} & 8738935 & 35454 & 95.20 & 0.90 & 100.01 \\
+\textit{Mus musculus} & 6370149 & 9129 & 93.30 & 1.60 & 100.02 \\
+\textit{Homo sapiens} & 19360000 & 11138 & 93.20 & 1.40 & 100.03 \\
+\textit{Homo sapiens} & 5550336 & 10430 & 92.80 & 1.40 & 100.05 \\
+\textit{Serinus canaria} & 19890000 & 304399 & 96.50 & 0.40 & 100.05 \\
+\textit{Desmodus rotundus} & 26190000 & 29800 & 94.30 & 0.90 & 100.12 \\
+\textit{Sarcophilus harrisii} & 1770155 & 35974 & 89.60 & 1.40 & 100.53 \\
+\textit{Homo sapiens} & 195564 & 858918 & 86.10 & 1.30 & 100.97 \\
+\textit{Gadus morhua} & 258723 & 427427 & 60.60 & 0.90 & 107.48 \\
+\textit{Ovis aries} & 43840000 & 1217 & 38.10 & 0.30 & 115.73 \\
+\hline
+\textit{Homo sapiens} & 16130000 & 43100 & 11.40 & 79.70 & 155.54 \\
+\textit{Homo sapiens} & 18070000 & 47409 & 11.10 & 80.00 & 155.86 \\
+\textit{Acinonyx jubatus} & 48410000 & 6438 & 8.70 & 85.90 & 160.17 \\
+\textit{Salvelinus alpinus} & 41440000 & 10 & 29.40 & 1.70 & 308.20 \\
+\textit{Xiphophorus hellerii} & 27850000 & 4 & 18.50 & 0.70 & 506.60 \\ \hline
+\end{tabular}%
+}
+\caption{The top 5 genome assemblies with the smallest distance, 20 randomly selected genome assemblies, and the bottom 5 genome assemblies with the largest distance. Duplicate species in the table represent various genome assemblies uploaded to NCBI.}
+\label{tab:distances}
+\end{table*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               %%
+%% Additional Files              %%
+%%                               %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section*{Additional Files}
+%   \subsection*{Additional file 1 --- Sample additional file title}
+%     Additional file descriptions text (including details of how to
+%     view the file, if it is in a non-standard format or the file extension).  This might
+%     refer to a multi-page table or a figure.
+
+%   \subsection*{Additional file 2 --- Sample additional file title}
+%     Additional file descriptions text.
+
+
+\end{backmatter}
+\end{document}
